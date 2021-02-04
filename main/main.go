@@ -3,7 +3,7 @@ package main
 import (
 	"hskwakr.practice/book/book"
 
-	"github.com/gofiber/fiber"
+	"github.com/gofiber/fiber/v2"
 )
 
 func setupRoutes(app *fiber.App) {
