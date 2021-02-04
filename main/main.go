@@ -1,7 +1,7 @@
 package main
 
 import (
-	"book"
+	"hskwakr.practice/book/book"
 
 	"github.com/gofiber/fiber"
 )
