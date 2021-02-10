@@ -1,25 +1,26 @@
 package book
 
 import (
-	"github.com/gofiber/fiber/v2"
+	"github.com/labstack/echo/v4"
+	"net/http"
 )
 
 // GetBooks gets all book.
-func GetBooks(c *fiber.Ctx) error {
-	return c.SendString("All Books")
+func GetBooks(c echo.Context) error {
+	return c.String(http.StatusOK, "all books")
 }
 
 // GetBook gets a book.
-func GetBook(c *fiber.Ctx) error {
-	return c.SendString("A Single Book")
+func GetBook(c echo.Context) error {
+	return c.String(http.StatusOK, "A Single Book")
 }
 
 // NewBook adds a new book.
-func NewBook(c *fiber.Ctx) error {
-	return c.SendString("Adds a new Book")
+func NewBook(c echo.Context) error {
+	return c.String(http.StatusOK, "Adds a new Book")
 }
 
 // DeleteBook deletes a book.
-func DeleteBook(c *fiber.Ctx) error {
-	return c.SendString("Deletes a Book")
+func DeleteBook(c echo.Context) error {
+	return c.String(http.StatusOK, "Deletes a Book")
 }
