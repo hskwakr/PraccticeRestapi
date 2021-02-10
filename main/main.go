@@ -1,22 +1,18 @@
 package main
 
 import (
-	"hskwakr.practice/book/book"
+	"hskwakr/book/book"
 
-	"github.com/gofiber/fiber/v2"
+	"github.com/labstack/echo/v4"
 )
 
-func setupRoutes(app *fiber.App) {
-	app.Get("/api/v1/book", book.GetBooks)
-	app.Get("/app/v1/book/:id", book.GetBook)
-	app.Post("/app/v1/book/", book.NewBook)
-	app.Delete("/app/v1/book/:id", book.DeleteBook)
-}
-
 func main() {
-	app := fiber.New()
+	app := echo.New()
 
-	setupRoutes(app)
+	app.GET("/api/v1/book", book.GetBooks)
+	app.GET("/app/v1/book/:id", book.GetBook)
+	app.POST("/app/v1/book/", book.NewBook)
+	app.DELETE("/app/v1/book/:id", book.DeleteBook)
 
-	app.Listen(": 3000")
+	app.Logger.Fatal(app.Start(":1323"))
 }
