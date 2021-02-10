@@ -9,10 +9,10 @@ import (
 func main() {
 	app := echo.New()
 
-	app.GET("/api/v1/book", book.GetBooks)
-	app.GET("/app/v1/book/:id", book.GetBook)
-	app.POST("/app/v1/book/", book.NewBook)
-	app.DELETE("/app/v1/book/:id", book.DeleteBook)
+	app.GET("/books/", book.GetBooks)
+	app.GET("/book/:id", book.GetBook)
+	app.POST("/book/", book.NewBook)
+	app.DELETE("/book/:id", book.DeleteBook)
 
-	app.Logger.Fatal(app.Start(":1323"))
+	app.Logger.Fatal(app.Start(":8080"))
 }
