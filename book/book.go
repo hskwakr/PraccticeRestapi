@@ -1,9 +1,20 @@
 package book
 
 import (
-	"github.com/labstack/echo/v4"
 	"net/http"
+
+	"github.com/labstack/echo/v4"
+
+	"gorm.io/gorm"
 )
+
+// Book represents a book
+type Book struct {
+	gorm.Model
+	Title  string `json:"title"`
+	Author string `json:"author"`
+	Rating int    `json:"rating"`
+}
 
 // GetBooks gets all book.
 func GetBooks(c echo.Context) error {
