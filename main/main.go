@@ -15,19 +15,21 @@ func setupRoutes(app *echo.Echo) {
 	app.DELETE("/book/:id", book.DeleteBook)
 }
 
-func initDatabase() {
-	db, err := gorm.Open(mysql.Open("book.db"), &gorm.Config{})
+func initDatabase() *gorm.DB {
+	dsn := "user:pass@tcp(127.0.0.1:3306)/db?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		panic("failed to connect database")
 	}
 
-	db.AutoMigrate(&book.Book{})
+	return db
 }
 
 func main() {
 	app := echo.New()
 
+	initDatabase()
 	setupRoutes(app)
 	app.Logger.Fatal(app.Start(":8080"))
 }
