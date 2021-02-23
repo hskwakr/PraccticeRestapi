@@ -17,21 +17,21 @@ type Book struct {
 }
 
 // GetBooks gets all book.
-func GetBooks(c echo.Context) error {
+func getBooks(c echo.Context) error {
 	return c.String(http.StatusOK, "all books")
 }
 
 // GetBook gets a book.
-func GetBook(c echo.Context) error {
+func getBook(c echo.Context) error {
 	return c.String(http.StatusOK, "A Single Book")
 }
 
 // NewBook adds a new book.
-func NewBook(c echo.Context) error {
+func newBook(c echo.Context) error {
 	return c.String(http.StatusOK, "Adds a new Book")
 }
 
 // DeleteBook deletes a book.
-func DeleteBook(c echo.Context) error {
+func deleteBook(c echo.Context) error {
 	return c.String(http.StatusOK, "Deletes a Book")
 }
