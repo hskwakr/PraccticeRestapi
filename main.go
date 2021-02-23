@@ -7,10 +7,10 @@ import (
 )
 
 func setupRoutes(app *echo.Echo) {
-	app.GET("/books/", GetBooks)
-	app.GET("/book/:id", GetBook)
-	app.POST("/book/", NewBook)
-	app.DELETE("/book/:id", DeleteBook)
+	app.GET("/books/", getBooks)
+	app.GET("/book/:id", getBook)
+	app.POST("/book/", newBook)
+	app.DELETE("/book/:id", deleteBook)
 }
 
 func initDatabase() *gorm.DB {
