@@ -1,18 +1,16 @@
 package main
 
 import (
-	"hskwakr/book/book"
-
 	"github.com/labstack/echo/v4"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
 func setupRoutes(app *echo.Echo) {
-	app.GET("/books/", book.GetBooks)
-	app.GET("/book/:id", book.GetBook)
-	app.POST("/book/", book.NewBook)
-	app.DELETE("/book/:id", book.DeleteBook)
+	app.GET("/books/", getBooks)
+	app.GET("/book/:id", getBook)
+	app.POST("/book/", newBook)
+	app.DELETE("/book/:id", deleteBook)
 }
 
 func initDatabase() *gorm.DB {
